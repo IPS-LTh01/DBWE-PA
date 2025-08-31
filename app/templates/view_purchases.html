@@ -1,0 +1,45 @@
+<!-- app/templates/view_purchases.html -->
+{% extends "index_derived.html" %}
+{% block content %}
+    <h2>Einkäufe:</h2>
+
+    <!-- -->
+    {% if purchases %}
+    <table>
+    <tbody>
+
+        {% for purchase in purchases %}
+
+        <tr>
+            <td><a href="purchases/{{ purchase.id }}" class="table-button">Details &#47; Einkauf bearbeiten</a></td>
+            <td class="date">{{ purchase.date }}</td>
+            <td class="supplier">{{ purchase.companyname }}</td>
+            
+        <!-- Wenn purchase.items vorhanden ist und für diesen Artikel gesetzt ist, dass er in Berechnungen einbezogen werden soll --> 
+            {% if purchase.items %}
+                
+                <!-- Variable für Artikelsumme je Zeile initialisieren -->
+                {% set purchasetotal = namespace(item_total=0.00) %}
+
+                <!-- Für jedes Items-Objekt in purchase.items -->
+                {% for item in purchase.items  %}
+
+                    {% if item.calculation_inclusion == 1 %}
+                        <!-- Zur Artikelsumme den Gesamtpreis des aktuellen Artikels in der For-Scheife addieren -->
+                        {% set purchasetotal.item_total = item.item_total|float  + purchasetotal.item_total %}
+                    {% endif %}
+                {% endfor %}
+
+                <td class="sum">{{ '%0.2f' % purchasetotal.item_total }} CHF</td>
+            {% else %}
+                <!-- Wenn der Einkauf keine Artikel zum Berechnen hat in der Zelle für die Gesamtkosten nichts ausgeben -->
+                <td class="sum"></td>
+            {% endif %}
+                <td><a href="delete-purchase/{{ purchase.id }}" class="table-button">🗑</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+
+{% endblock %}

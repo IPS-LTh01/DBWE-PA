@@ -1,0 +1,170 @@
+body {
+    
+    background-color: #dddddd;
+    font-family: Verdana;
+
+}
+
+
+h2 {
+    
+    color: #0570B0;
+}
+
+div#menu a {
+
+    display: inline-block;
+    border-radius: 3px;
+    padding: 6px;
+    margin:  1px;
+    
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #0570B0;
+    color: #ffffff;
+
+}
+
+div#menu a:visited {
+    
+    text-decoration: none;
+}
+
+div#menu a:hover {
+    
+    background-color: #043050;
+}
+
+
+a.table-button {
+
+    display: inline-block;
+    border-radius: 3px;
+    padding: 4px;
+    margin:  1px;
+    
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color: #0570B0;
+    color: #ffffff;
+}
+
+a.purchase_edit:visited {
+
+    text-decoration: none;
+}
+
+div.home-button {
+
+    display: inline-block;
+}
+    
+
+div.home-button a {
+    
+    width: 220px;
+    height: 140px;
+    display: inline-block;
+
+    border-radius: 5px;
+    background-color: #0570B0;
+
+    color: #ffffff;
+
+    padding: 4px;
+    padding-top: 60px;
+
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 32px;
+
+    text-decoration: none;
+
+}
+
+div.home-button a:visited {
+
+    text-decoration: none;
+}
+
+div.home-button a:hover {
+
+    background-color: #043050;
+}
+
+
+table {
+
+    background-color: #eeeeee;
+
+}
+
+table th td.item-table-heading {
+
+    font-weight: bold;
+}
+
+td.itemname {
+
+    width: 280px;
+}
+
+td.itemtype {
+
+    width: 200px;
+}
+
+td.itemamount {
+
+    width: 80px;
+
+    text-align: center;
+}
+
+td.itemprice {
+
+    width: 180px;
+
+    text-align: right;
+}
+
+td.itemcost-sum {
+
+    width: 180px;
+
+    text-align: right;
+    font-weight: bold;
+}
+
+td.sum {
+
+    width: 200px;
+    text-align: right;
+    font-weight: bold;
+}
+
+
+table tr td {
+
+    padding: 3px;
+    border: 1px;
+
+    background-color: #ffffff;
+
+    font-size: 18px;
+}
+
+td.date {
+
+    width: 200px;
+}
+
+td.supplier {
+
+    width: 400px;
+}

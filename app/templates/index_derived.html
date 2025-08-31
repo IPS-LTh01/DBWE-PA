@@ -1,0 +1,26 @@
+<!-- app/templates/index_derived.html -->
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+        <style>
+        </style>
+{% endblock %}
+{% block body %}
+        <div id="menu">
+
+                <!-- Wenn keine Session für einen authentifizierten Benutzer vorhanden ist -->
+                {% if current_user.is_anonymous %}
+                <a class="menu-button" href="/login">Login</a>
+                
+                <!-- Wenn eine Session für einen authentifizierten Benutzer vorhanden ist -->
+                {% else %}
+                <a class="menu-button" href="/index">Home</a>
+                <a class="menu-button" href="/view-purchases">Einkäufe</a>
+                <a class="menu-button" href="/submit-purchase">Einkauf Erfassen</a>
+                <a class="menu-button" href="/logout">Logout</a>
+                {% endif %}
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+{% endblock %}

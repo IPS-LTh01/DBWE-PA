@@ -1,0 +1,37 @@
+<!-- app/templates/edit_purchases.html -->
+{% extends "index_derived.html" %}
+{% block content %}
+    <h2>Artikel in Einkauf:</h2>
+
+    {% if items %}
+    <table>
+    <tbody>
+        <tr>
+            <td class="item-table-heading">Aktionen</td>
+            <td class="item-table-heading">Artikel-Name</td>
+            <td class="item-table-heading">Artikel-Art</td>
+            <td class="item-table-heading">Menge</td>
+            <td class="item-table-heading">Stückpreis</td>
+            <td class="item-table-heading">Artikel-Kosten</td>
+            <td class="item-table-heading"></td>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td class="itembuttons"><a href="/edititem/{{ item.id }}" class="table-button">Bearbeiten</a></td>
+            <td class="itemname" title="{{ item.description }}">{{ item.name }}</td>
+            <td class="itemtype">{{ item.item_type }}</td>
+            <td class="itemamount">{{ item.amount }}</td>
+            <td class="itemprice">{{ item.price_per }}</td>
+            <td class="itemcost-sum">{{ item.item_total }}</td>
+            <td><a href="/delete-item/{{ item.id }}" class="table-button">🗑</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <div>
+        <a href="/additem/{{ id_purchase }}" class="table-button">Artikel hinzufügen</a>
+    </div>
+    {% endif %}
+
+{% endblock %}

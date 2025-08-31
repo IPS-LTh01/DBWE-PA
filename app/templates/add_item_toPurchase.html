@@ -1,0 +1,46 @@
+<!-- app/templates/add_item_toPurchase.html -->
+
+{% extends "index_derived.html" %}
+
+{% block content %}
+    <h2>Artikel für Einkauf erfassen: </h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.itemname.label }}<br>
+            {{ form.itemname(size=120) }}<br>
+            {% for error in form.itemname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.itemtype.label }}<br>
+            {{ form.itemtype(size=120) }}<br>
+            {% for error in form.itemtype.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.itemamount.label }}<br>
+            {{ form.itemamount(size=32) }}<br>
+            {% for error in form.itemamount.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.itempriceper.label }}<br>
+            {{ form.itempriceper(size=20) }}<br>
+            {% for error in form.itempriceper.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.itemdescription.label }}<br>
+            {{ form.itemdescription(size=200) }}<br>
+            {% for error in form.itemdescription.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
