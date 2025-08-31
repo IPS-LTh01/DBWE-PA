@@ -1,1 +1,5 @@
-
+app/__pycache__
+venv/*
+logs/*
+migrations/*
+__pycache__/*
