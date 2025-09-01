@@ -1,3 +1,6 @@
+/*  CSS Code der Web-Applikation  */
+
+/*  Generelle Style-Attribute für den body-tag  */
 body {
     
     background-color: #dddddd;
@@ -5,12 +8,13 @@ body {
 
 }
 
-
+/*  Generelle Style-Attribute für den den h2-Überschrifts-tag  */
 h2 {
     
     color: #0570B0;
 }
 
+/*  Generelle Style-Attribute für den link a-tag in div id=menu */
 div#menu a {
 
     display: inline-block;
@@ -27,17 +31,19 @@ div#menu a {
 
 }
 
+/*  Erweiterung für div#menu a wenn Link besucht worden ist  */
 div#menu a:visited {
     
     text-decoration: none;
 }
 
+/*  Erweiterung für div#menu a wenn sich die Maus über dem Link befindet  */
 div#menu a:hover {
     
     background-color: #043050;
 }
 
-
+/*  Generelle Style-Attribute für den link a-tag mit der html-class: table-button */
 a.table-button {
 
     display: inline-block;
@@ -53,17 +59,19 @@ a.table-button {
     color: #ffffff;
 }
 
+/*  Erweiterung für div#menu a wenn Link besucht worden ist  */
 a.purchase_edit:visited {
 
     text-decoration: none;
 }
 
+/*  Generelle Style-Attribute für divs mit der html-class: home-button wenn man home-button in der Navigation nutzt */
 div.home-button {
 
     display: inline-block;
 }
     
-
+/*  Generelle Style-Attribute für den link a-tag in divs mit der html-class homebutton */
 div.home-button a {
     
     width: 220px;
@@ -87,38 +95,45 @@ div.home-button a {
 
 }
 
+/*  Erweiterung für div.home-button a wenn Link besucht worden ist  */
 div.home-button a:visited {
 
     text-decoration: none;
 }
 
+/*  Erweiterung für div.home-button a wenn sich die Maus über dem Link befindet  */
 div.home-button a:hover {
 
     background-color: #043050;
 }
 
 
+/*  Generelle Style-Attribute für html-Tabellen */
 table {
 
     background-color: #eeeeee;
 
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: item-table-heading in th elementen in html-Tabellen */
 table th td.item-table-heading {
 
     font-weight: bold;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: itemname */
 td.itemname {
 
     width: 280px;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: itemtype */
 td.itemtype {
 
     width: 200px;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: itemamount */
 td.itemamount {
 
     width: 80px;
@@ -126,6 +141,7 @@ td.itemamount {
     text-align: center;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: itemprice */
 td.itemprice {
 
     width: 180px;
@@ -133,6 +149,7 @@ td.itemprice {
     text-align: right;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: itemcost-sum */
 td.itemcost-sum {
 
     width: 180px;
@@ -141,6 +158,7 @@ td.itemcost-sum {
     font-weight: bold;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: sum */
 td.sum {
 
     width: 200px;
@@ -148,7 +166,7 @@ td.sum {
     font-weight: bold;
 }
 
-
+/*  Generelle Style-Attribute für td-Elemente in tr elementen in html-Tabellen */
 table tr td {
 
     padding: 3px;
@@ -159,11 +177,13 @@ table tr td {
     font-size: 18px;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: date */
 td.date {
 
     width: 200px;
 }
 
+/*  Generelle Style-Attribute für td-Elemente der html-class: supplier */
 td.supplier {
 
     width: 400px;

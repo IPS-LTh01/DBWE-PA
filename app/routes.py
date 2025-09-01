@@ -1,6 +1,6 @@
 # app/routes.py
 
-# Import von notwendigen Modulen Routen
+# Import von notwendigen Modulen für Routen
 from flask import render_template, flash, redirect, url_for
 from sqlalchemy import func, join
 from app import app,db
@@ -78,9 +78,8 @@ def view_purchases():
     if not current_user.is_authenticated:
         return redirect(url_for('index'))
     
-
+    # Query per SQLAlchemy für erfasste Einkäufe, die calculate_costs=1 und visible=1 haben
     results_purchases = Purchase.query.filter_by(id_user=current_user.get_id(),calculate_costs=1,visible=1).order_by(Purchase.date.desc())
-
     return render_template('view_purchases.html', title='Einkäufe - Übersicht', purchases=results_purchases)
 
 
@@ -149,6 +148,7 @@ def display_purchase(purchase_id):
     return render_template('edit_purchase.html', title='Einkauf bearbeiten', items=items, id_purchase=purchase_id)
 
 
+# Route für das Formular zu Hinzufügen eines Artikels zu einem Einkauf
 @app.route('/additem/<int:purchase_id>', methods=['GET','POST'])
 def add_item_to_purchase(purchase_id):
 
@@ -162,6 +162,7 @@ def add_item_to_purchase(purchase_id):
     form = AddItemToPurchaseForm()
     purch_id = purchase_id
 
+    # Wenn Validierung des Form keine Fehler hat
     if form.validate_on_submit():
         
         item = Items(
@@ -181,6 +182,7 @@ def add_item_to_purchase(purchase_id):
     return render_template('add_item_toPurchase.html', title='Artikel hinzufügen', id_purchase=purchase_id, form=form)
 
 
+# Route für das Formular zu Bearbeiten eines Artikels mit der item_id in einem bestehenden Einkauf
 @app.route('/edititem/<int:item_id>', methods=['GET','POST'])
 def edit_item_in_purchase(item_id):
 
@@ -206,6 +208,7 @@ def edit_item_in_purchase(item_id):
             db.session.commit()
             return redirect('/purchases/'+ str(item.id_purchase))
         else:
+            # Wenn item keinen Eintrag zurückgeliefert hat Umleitung auf die Detailseite des Einkaufs
             return redirect('/purchases/'+ str(item.id_purchase))
     
     return render_template('edit_item_inPurchase.html', title='Artikel bearbeiten', items=item, form=form)
@@ -239,5 +242,6 @@ def delete_item(item_id):
             db.session.commit()
             return redirect(url_for('view_purchases'))
         else:
+            # Wenn item keinen Eintrag zurückgeliefert hat Umleitung auf die Detailseite der Einkäufe
             return redirect('/purchases/')
     return render_template('delete_item.html', title='Artikel löschen', form=form)

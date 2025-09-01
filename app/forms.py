@@ -41,6 +41,7 @@ class RegisterForm(FlaskForm):
     # Prüfung ob ein gültiger Aktivierungscode während der Registrierung angegeben worden ist, aktuell Hardcoded     
     def validate_activation(self,activation):
 
+        # Validierung des Aktivierungscodes - Vorerst hardcoded
         if not activation.data == 'Welcome@2025':
             raise ValidationError('Bitte einen gültigen Aktivierunscode eingeben.')
 

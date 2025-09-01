@@ -72,6 +72,7 @@ class User(UserMixin, db.Model):
 
     # API Methoden für User-Class
 
+    # Aus Unterrichtsmaterial
     def to_dict(self):
         data = {
             'id': self.id,
@@ -82,6 +83,7 @@ class User(UserMixin, db.Model):
         }
         return data
     
+    # Aus Unterrichtsmaterial
     @staticmethod
     def to_collection():
         users = User.query.all()
@@ -114,11 +116,13 @@ class Purchase(db.Model):
         "Items", lazy="subquery", backref=backref("ItemPurchase", lazy="subquery")
     )
 
+    # Für Print-Output debug eines Benutzerklassen-Objekts
     def __repr__(self):
         return 'Purchase {}'.format(self.date, self.items)
 
     # API Methoden für Einkäufe
 
+    #  Methode für die Erstellung eines Dictionary für jeden Artikel eines Einkaufs
     def to_dict(self):
         
         item_list = {
@@ -138,6 +142,7 @@ class Purchase(db.Model):
                 'item_type': item.item_type,
                 'item_total': item.item_total
             }
+            # Anhängen des aktuellen Item Dictionary
             item_list["items"].append(item_details)
         
         data = {
@@ -145,9 +150,11 @@ class Purchase(db.Model):
             'date': self.date,
             'companyname': self.companyname,
         }
+        # Anhängen der Item-Liste an das Rückgabe-Dictionary des Einkaufs
         data.update(item_list)
         return data
 
+    # Methode für die Erstellung eines Dictionary für jeden Einkauf des Benutzers
     def to_dict_purchase(self):
         
         data = {
@@ -157,6 +164,7 @@ class Purchase(db.Model):
         }
         return data
 
+    # Methode für die Erstellung eines Dictionary für den Einkauf mit der angefragten purchase_id - nutzt Methode weiter oben .to_dict()
     @staticmethod
     def to_collection(user_id,purchase_id):
         #purchases = Purchase.query.filter_by(id_user=current_user.get_id()).order_by(Purchase.date.desc())
@@ -166,6 +174,7 @@ class Purchase(db.Model):
         }
         return (data)
     
+    # Methode für die Erstellung eines Dictionary für Einkaufe des an der API authentifizierten Benutzers - nutzt Methode weiter oben .to_dict_purchase()
     @staticmethod
     def to_collection_purchases(user_id):
         #purchases = Purchase.query.filter_by(id_user=current_user.get_id()).order_by(Purchase.date.desc())

@@ -15,6 +15,8 @@ token_auth = HTTPTokenAuth()
 @app.route('/api/purchase/<int:id>', methods=['GET'])
 @token_auth.login_required
 def get_purchase(id):
+    
+    # Methode .to_collection() um die Artikels des Einkaufs mit der id aus der URL abzufragen
     data = Purchase.to_collection(token_auth.current_user().get_id(),id)
     return jsonify(data)
 
@@ -22,6 +24,8 @@ def get_purchase(id):
 @app.route('/api/purchases', methods=['GET'])
 @token_auth.login_required
 def get_purchases():
+
+    # Methode .to_collection_purchases() alle Einkaufe des an der API authentifizierten Benutzers(Tokens) abzufragen
     data = Purchase.to_collection_purchases(token_auth.current_user().get_id())
     return jsonify(data)
 
